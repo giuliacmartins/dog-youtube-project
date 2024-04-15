@@ -1,0 +1,36 @@
+nav {
+    padding: 10px 2%;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-left .menu-icon {
+    width: 22px;
+    margin-right: 25px;
+}
+
+.nav-left .youtube-logo {
+    width: 35px;
+}
+
+.nav-middle .search-bar {
+    border: 1px solid #ccc;
+    margin-right: 15px;
+    padding: 8px 12px;
+    border-radius: 25px;
+}
+
+.nav-middle .search-bar input {
+    width: 500px;
+    border: 0;
+    outline: 0;
+    background: transparent; 
+}
+
+.nav-middle .search-icon {
+    width: 20px;
+}
