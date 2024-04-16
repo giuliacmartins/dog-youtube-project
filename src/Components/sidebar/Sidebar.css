@@ -21,3 +21,11 @@
     flex-wrap: wrap;
     cursor: pointer;
 }
+
+.small-sidebar {
+    width: 5%;
+}
+
+.small-sidebar p {
+    display: none;
+}
