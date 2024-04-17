@@ -31,8 +31,8 @@ const Feed = () => {
                     <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
                     <div className="video-info">
                         <h3>{video.snippet.title}</h3>
-                        <p>Channel: {video.snippet.channelTitle}</p>
-                        <p>{video.snippet.description}</p>
+                        <p>{video.snippet.channelTitle}</p>
+                        {/* <p>{video.snippet.description}</p> */}
                     </div>
                 </a>
                 </div>
