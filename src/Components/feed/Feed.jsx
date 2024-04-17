@@ -9,7 +9,7 @@ const Feed = () => {
         const fetchVideos = async () => {
             try {
                 const API_KEY = 'AIzaSyAofAxJwSMwwQYiMwcUfLd2Yw183-rZfKo';
-                const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&q=dog`);
+                const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&q=dog&maxResults=21`);
                 if (response.ok) {
                     const data = await response.json();
                     setVideos(data.items);
