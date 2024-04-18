@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import './Feed.css'
-// test
+
 const Feed = () => {
     const [videos, setVideos] = useState([]);
 
@@ -27,14 +27,14 @@ const Feed = () => {
         <div className="feed">
             {videos.map((video) => (
                 <div key={video.id.videoId} className="video">
-                <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">
-                    <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
-                    <div className="video-info">
-                        <h3>{video.snippet.title}</h3>
-                        <p>{video.snippet.channelTitle}</p>
-                        {/* <p>{video.snippet.description}</p> */}
-                    </div>
-                </a>
+                {/* <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer"> */}
+                <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
+                <div className="video-info">
+                    <h3>{video.snippet.title}</h3>
+                    <p>{video.snippet.channelTitle}</p>
+                    {/* <p>{video.snippet.description}</p> */}
+                </div>
+                {/* </a> */}
                 </div>
             ))}
         </div>
