@@ -3,12 +3,16 @@ import './Navbar.css'
 import menu_icon from '../../assets/menu.png'
 import youtube_logo from '../../assets/youtube_logo.png'
 import search_icon from '../../assets/search.png'
+import { Link } from 'react-router-dom'
+
 const Navbar = ({setSidebar}) => {
   return (
     <nav className='flex-div'>
         <div className='nav-left flex-div'>
             <img className='menu-icon' onClick={() => setSidebar(prev=>prev===false?true:false)} src={menu_icon} alt="Menu" />
-            <img className='youtube-logo' src={youtube_logo} alt="YouTube" />
+            <Link to="/">
+                <img className='youtube-logo' src={youtube_logo} alt="YouTube" />
+            </Link>
         </div>
 
         <div className="nav-middle flex-div">

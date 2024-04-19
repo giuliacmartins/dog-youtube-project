@@ -40,7 +40,10 @@ const PlayVideo = ({ videoId }) => {
             ></iframe>
             <div className="video-info">
                 <h3>{video.snippet.title}</h3>
-                <p>{video.snippet.channelTitle}</p>
+            </div>
+            <div className="description">
+                <h4>{video.snippet.channelTitle}</h4>
+                <p>{video.snippet.description}</p>
             </div>
         </div>
     );
