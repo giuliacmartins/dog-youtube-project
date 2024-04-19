@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import './Feed.css'
+import { Link  } from 'react-router-dom'
 
 const Feed = ({ onSelectVideo }) => {
     const [videos, setVideos] = useState([]);
@@ -26,13 +27,13 @@ const Feed = ({ onSelectVideo }) => {
     return (
         <div className="feed">
             {videos.map((video) => (
-                <div key={video.id.videoId} className="video" onClick={() => onSelectVideo(video)}>
+                <Link to={`video/20/4521`} key={video.id.videoId} className="video" onClick={() => onSelectVideo(video)}>
                     <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
                     <div className="video-info">
                         <h3>{video.snippet.title}</h3>
                         <p>{video.snippet.channelTitle}</p>
                     </div>
-                </div>
+                </Link>
             ))}
         </div>
     )
