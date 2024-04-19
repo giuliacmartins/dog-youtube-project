@@ -1,0 +1,13 @@
+.video-player {
+    flex-basis: 69%;
+}
+
+.video-player video {
+    width: 100%;
+}
+
+.video-player h3 {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 22px;
+}

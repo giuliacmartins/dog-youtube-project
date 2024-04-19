@@ -1,7 +1,6 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import './Feed.css'
-import { Link  } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import './Feed.css';
+import { Link } from 'react-router-dom';
 
 const Feed = ({ onSelectVideo }) => {
     const [videos, setVideos] = useState([]);
@@ -16,7 +15,7 @@ const Feed = ({ onSelectVideo }) => {
                     setVideos(data.items);
                 } else {
                     console.error('Failed to fetch the videos');
-                }  
+                }
             } catch (error) {
                 console.error('Error fetching the videos:', error);
             }
@@ -27,7 +26,7 @@ const Feed = ({ onSelectVideo }) => {
     return (
         <div className="feed">
             {videos.map((video) => (
-                <Link to={`video/20/4521`} key={video.id.videoId} className="video" onClick={() => onSelectVideo(video)}>
+                <Link to={`/video/${video.id.videoId}`} key={video.id.videoId} className="video" onClick={() => onSelectVideo(video)}>
                     <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
                     <div className="video-info">
                         <h3>{video.snippet.title}</h3>
@@ -36,7 +35,7 @@ const Feed = ({ onSelectVideo }) => {
                 </Link>
             ))}
         </div>
-    )
+    );
 }
 
-export default Feed 
+export default Feed;

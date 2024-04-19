@@ -1,14 +1,16 @@
-import React from 'react'
-import './Video.css'
-import PlayVideo from '../../components/playVideo/PlayVideo'
+import React from 'react';
+import './Video.css';
+import PlayVideo from '../../components/playVideo/PlayVideo';
+import { useParams } from 'react-router-dom';
 
-const Video = ({ selectedVideo }) => {
-  return (
-    <div className="play-video-container">
-        <PlayVideo video={selectedVideo} />
-    </div>
-  )
+const Video = () => {
+    const { videoId } = useParams();
+
+    return (
+        <div className="play-video-container">
+            <PlayVideo videoId={videoId} />
+        </div>
+    );
 }
 
-export default Video 
-
+export default Video;
