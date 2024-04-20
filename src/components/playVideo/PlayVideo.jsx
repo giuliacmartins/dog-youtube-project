@@ -7,7 +7,7 @@ const PlayVideo = ({ videoId }) => {
     useEffect(() => {
         const fetchVideoDetails = async () => {
             try {
-                const API_KEY = 'AIzaSyDhkid7dkEXOUccLhQfeVpxBHMUXp9Vtsc';
+                const API_KEY = 'AIzaSyBGhHGF2W7W22DYdOjImeOM25NjBRGjCFA';
                 const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${API_KEY}&part=snippet`);
                 if (response.ok) {
                     const data = await response.json();

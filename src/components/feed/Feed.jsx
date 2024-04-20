@@ -57,7 +57,7 @@ const Feed = ({ selectedSearchResult, handleSearchResultClick }) => {
 
     const fetchDefaultVideos = async () => {
         try {
-            const API_KEY = 'AIzaSyDhkid7dkEXOUccLhQfeVpxBHMUXp9Vtsc';
+            const API_KEY = 'AIzaSyBGhHGF2W7W22DYdOjImeOM25NjBRGjCFA';
             const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&q=dog&maxResults=21`);
             if (response.ok) {
                 const data = await response.json();
@@ -72,7 +72,7 @@ const Feed = ({ selectedSearchResult, handleSearchResultClick }) => {
 
     const fetchSimilarVideos = async (videoId) => {
         try {
-            const API_KEY = 'AIzaSyB6wtzVttZQOZDD9sQQ1KD-RRCj7jOKuWI';
+            const API_KEY = 'AIzaSyBGhHGF2W7W22DYdOjImeOM25NjBRGjCFA';
             const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&relatedToVideoId=${videoId}&maxResults=21`);
             if (response.ok) {
                 const data = await response.json();

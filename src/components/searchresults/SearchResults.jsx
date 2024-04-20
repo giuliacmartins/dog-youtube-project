@@ -63,15 +63,13 @@ const SearchResults = ({ searchQuery }) => {
         const fetchSearchResults = async () => {
         try {
             // if (!searchQuery) return; 
-            const API_KEY = 'AIzaSyDhkid7dkEXOUccLhQfeVpxBHMUXp9Vtsc';
-            const response = await fetch(
-            `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&q=${searchQuery}&maxResults=21`
-            );
+            const API_KEY = 'AIzaSyBGhHGF2W7W22DYdOjImeOM25NjBRGjCFA';
+            const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&q=${searchQuery}&maxResults=21`);
             if (response.ok) {
-            const data = await response.json();
-            setSearchResults(data.items);
+                const data = await response.json();
+                setSearchResults(data.items);
             } else {
-            console.error('Failed to fetch search results');
+                console.error('Failed to fetch search results');
             }
         } catch (error) {
             console.error('Error fetching search results:', error);
@@ -83,20 +81,20 @@ const SearchResults = ({ searchQuery }) => {
 
     return (
         <div className="search-results">
-        {searchResults.map((result) => (
+            {searchResults.map((result) => (
             <div key={result.id.videoId} className="search-result">
-            <a href={`https://www.youtube.com/watch?v=${result.id.videoId}`} target="_blank" rel="noopener noreferrer">
-                <img
-                src={result.snippet.thumbnails.medium.url}
-                alt={result.snippet.title}
-                />
-            </a>
-            <div className="video-info">
-                <h3>{result.snippet.title}</h3>
-                <p>{result.snippet.description}</p>
+                <a href={`https://www.youtube.com/watch?v=${result.id.videoId}`} target="_blank" rel="noopener noreferrer">
+                    <img
+                    src={result.snippet.thumbnails.medium.url}
+                    alt={result.snippet.title}
+                    />
+                </a>
+                <div className="video-info">
+                    <h3>{result.snippet.title}</h3>
+                    <p>{result.snippet.description}</p>
+                </div>
             </div>
-            </div>
-        ))}
+            ))}
         </div>
     );
 };
