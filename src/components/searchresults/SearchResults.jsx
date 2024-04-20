@@ -55,25 +55,26 @@
 
 import React, { useEffect, useState } from 'react';
 import './SearchResults.css';
+import { Link } from 'react-router-dom';
 
 const SearchResults = ({ searchQuery }) => {
     const [searchResults, setSearchResults] = useState([]);
 
     useEffect(() => {
         const fetchSearchResults = async () => {
-        try {
-            // if (!searchQuery) return; 
-            const API_KEY = 'AIzaSyBGhHGF2W7W22DYdOjImeOM25NjBRGjCFA';
-            const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&q=${searchQuery}&maxResults=21`);
-            if (response.ok) {
-                const data = await response.json();
-                setSearchResults(data.items);
-            } else {
-                console.error('Failed to fetch search results');
+            try {
+                if (!searchQuery) return; 
+                const API_KEY = 'AIzaSyBGhHGF2W7W22DYdOjImeOM25NjBRGjCFA';
+                const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&q=${searchQuery}&maxResults=21`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setSearchResults(data.items);
+                } else {
+                    console.error('Failed to fetch search results');
+                }
+            } catch (error) {
+                console.error('Error fetching search results:', error);
             }
-        } catch (error) {
-            console.error('Error fetching search results:', error);
-        }
         };
 
         fetchSearchResults();
@@ -82,18 +83,18 @@ const SearchResults = ({ searchQuery }) => {
     return (
         <div className="search-results">
             {searchResults.map((result) => (
-            <div key={result.id.videoId} className="search-result">
-                <a href={`https://www.youtube.com/watch?v=${result.id.videoId}`} target="_blank" rel="noopener noreferrer">
-                    <img
-                    src={result.snippet.thumbnails.medium.url}
-                    alt={result.snippet.title}
-                    />
-                </a>
-                <div className="video-info">
-                    <h3>{result.snippet.title}</h3>
-                    <p>{result.snippet.description}</p>
+                <div key={result.id.videoId} className="search-result">
+                    <Link to={`/search/${result.id.videoId}`}>
+                        <img
+                            src={result.snippet.thumbnails.medium.url}
+                            alt={result.snippet.title}
+                        />
+                    </Link>
+                    <div className="video-info">
+                        <h3>{result.snippet.title}</h3>
+                        <p>{result.snippet.description}</p>
+                    </div>
                 </div>
-            </div>
             ))}
         </div>
     );
