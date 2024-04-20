@@ -47,15 +47,15 @@ const Navbar = ({ setSidebar }) => {
                     <input type='text' placeholder='Search' value={searchQuery} onChange={handleInputChange} />
                     <img className='search-icon' src={search_icon} alt='Search' />
                     <div className='search-results'>
-                {searchResults.map((result) => (
-                        <div key={result.id.videoId} className='search-result'>
-                            <Link to={`/video/${result.id.videoId}`}>
-                                <div className='video-info'>
-                                <h3>{result.snippet.title}</h3>
-                                <p>{result.snippet.channelTitle}</p>
-                                </div>
-                            </Link>
-                        </div>
+                        {searchResults.map((result) => (
+                            <div key={result.id.videoId} className='search-result'>
+                                <Link to={`/video/${result.id.videoId}`}>
+                                    <div className='video-info'>
+                                        {/* <img className='search-icon' src={search_icon} alt='Search Image' /> */}
+                                        <p>{result.snippet.title} {result.snippet.channelTitle}</p>
+                                    </div>
+                                </Link>
+                            </div>
                         ))}
                     </div>
                 </div>
