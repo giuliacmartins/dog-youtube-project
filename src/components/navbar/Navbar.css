@@ -1,4 +1,4 @@
-nav {
+/* nav {
     padding: 10px 2%;
     justify-content: space-between;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -33,4 +33,87 @@ nav {
 
 .nav-middle .search-icon {
     width: 20px;
+} */
+
+/* Navbar.css */
+
+nav {
+    padding: 10px 2%;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-left .menu-icon {
+    width: 22px;
+    margin-right: 25px;
+}
+
+.nav-left .youtube-logo {
+    width: 35px;
+}
+
+.nav-middle .search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    margin-right: 15px;
+    padding: 8px 12px;
+    border-radius: 25px;
+}
+
+.nav-middle .search-bar input {
+    width: 300px; /* Adjust the width as needed */
+    border: 0;
+    outline: 0;
+    background: transparent; 
+    margin-right: 5px;
+}
+
+.nav-middle .search-icon {
+    width: 20px;
+    cursor: pointer;
+}
+
+.search-results {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-result {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.search-result img {
+    width: 120px;
+    margin-right: 10px;
+}
+
+.video-info {
+    flex: 1;
+}
+
+.video-info h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.video-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
 }
