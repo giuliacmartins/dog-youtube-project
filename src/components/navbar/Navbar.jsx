@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import menu_icon from '../../assets/menu.png';
 import youtube_logo from '../../assets/youtube_logo.png';
 import search_icon from '../../assets/search.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = ({ setSidebar }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
+    const location = useLocation();
+
+    useEffect(() => {
+        setSearchResults([]);
+    }, [location]);
 
     const handleInputChange = (event) => {
         setSearchQuery(event.target.value);
@@ -20,7 +25,7 @@ const Navbar = ({ setSidebar }) => {
 
     const fetchSearchResults = async (query) => {
         try {
-            const API_KEY = 'AIzaSyAofAxJwSMwwQYiMwcUfLd2Yw183-rZfKo';
+            const API_KEY = 'AIzaSyB6wtzVttZQOZDD9sQQ1KD-RRCj7jOKuWI';
             const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&q=dog+${query}&maxResults=5`);
             if (response.ok) {
                 const data = await response.json();
@@ -41,7 +46,6 @@ const Navbar = ({ setSidebar }) => {
                     <img className='youtube-logo' src={youtube_logo} alt='YouTube' />
                 </Link>
             </div>
-
             <div className='nav-middle flex-div'>
                 <div className='search-bar flex-div'>
                     <input type='text' placeholder='Search' value={searchQuery} onChange={handleInputChange} />
@@ -60,7 +64,6 @@ const Navbar = ({ setSidebar }) => {
                     </div>
                 </div>
             </div>
-
             <div className='nav-right flex-div'>{/* Right side of the navbar */}</div>
         </nav>
     );
