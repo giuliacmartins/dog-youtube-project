@@ -81,16 +81,16 @@ const SearchResults = ({ searchQuery }) => {
     }, [searchQuery]);
 
     return (
-        <div className="search-results">
+        <div className="search-video-results">
             {searchResults.map((result) => (
-                <div key={result.id.videoId} className="search-result">
+                <div key={result.id.videoId} className="search-video-result">
                     <Link to={`/search/${result.id.videoId}`}>
                         <img
                             src={result.snippet.thumbnails.medium.url}
                             alt={result.snippet.title}
                         />
                     </Link>
-                    <div className="video-info">
+                    <div className="search-video-info">
                         <h3>{result.snippet.title}</h3>
                         <p>{result.snippet.description}</p>
                     </div>

@@ -1,6 +1,5 @@
-.search-results {
+.search-video-results {
     position: absolute;
-    top: calc(100% + 5px); 
     left: 0;
     width: 100%; 
     background-color: white;
@@ -11,7 +10,7 @@
     padding: 20px; 
 }
 
-.search-result {
+.search-video-result {
     display: flex;
     align-items: center; 
     padding: 10px;
@@ -19,23 +18,23 @@
     border-bottom: 1px solid #eee; 
 }
 
-.search-result img {
+.search-video-result img {
     width: 120px; 
     height: auto;
     margin-right: 20px; 
 }
 
-.video-info {
+.search-video-info {
     flex: 1;
 }
 
-.video-info h3 {
+.search-video-info h3 {
     margin: 0;
     font-size: 14px; 
     color: #333;
 }
 
-.video-info p {
+.search-video-info p {
     margin: 0;
     font-size: 12px; 
     color: #666;
