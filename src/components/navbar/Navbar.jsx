@@ -15,9 +15,13 @@ const Navbar = ({ setSidebar, setSearchQuery }) => {
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
-            setSearchQuery(searchInput);
-            navigate(`/search/${searchInput}`);
+            handleSearch();
         }
+    };
+
+    const handleSearch = () => {
+        setSearchQuery(searchInput);
+        navigate(`/search/${searchInput}`);
     };
 
     return (
@@ -31,7 +35,7 @@ const Navbar = ({ setSidebar, setSearchQuery }) => {
             <div className='nav-middle flex-div'>
                 <div className='search-bar flex-div'>
                     <input type='text' placeholder='Search' value={searchInput} onChange={handleInputChange} onKeyPress={handleKeyPress} />
-                    <img className='search-icon' src={search_icon} alt='Search' />
+                    <img className='search-icon' src={search_icon} alt='Search' onClick={handleSearch} />
                 </div>
             </div>
             <div className='nav-right flex-div'>{/* Right side of the navbar */}</div>

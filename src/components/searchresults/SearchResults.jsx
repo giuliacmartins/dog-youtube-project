@@ -29,17 +29,19 @@ const SearchResults = ({ searchQuery }) => {
         <div className="search-video-results">
             {searchResults.map((result) => (
                 <div key={result.id.videoId} className="search-video-result">
-                    <Link to={`/search/${result.id.videoId}`}>
+                    <Link to={`/video/${result.id.videoId}`}>
                         <img
                             src={result.snippet.thumbnails.medium.url}
                             alt={result.snippet.title}
                         />
                     </Link>
-                    <div className="search-video-info">
-                        <h3>{result.snippet.title}</h3>
-                        <h4>{result.snippet.channelTitle}</h4>
-                        <p>{result.snippet.description}</p>
-                    </div>
+                    <Link to={`/video/${result.id.videoId}`}>
+                        <div className="search-video-info">
+                            <h3>{result.snippet.title}</h3>
+                            <h4>{result.snippet.channelTitle}</h4>
+                            <p>{result.snippet.description}</p>
+                        </div>
+                    </Link>
                 </div>
             ))}
         </div>
