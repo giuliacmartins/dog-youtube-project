@@ -40,7 +40,7 @@ nav {
     cursor: pointer;
 }
 
-/* .search-results {
+.search-results {
     position: absolute;
     top: calc(100% + 5px);
     left: 0;
@@ -72,4 +72,4 @@ nav {
     margin: 0;
     font-size: 10px;
     color: #666;
-} */
+}

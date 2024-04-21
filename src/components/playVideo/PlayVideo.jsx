@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './PlayVideo.css';
+import { API_KEY } from '../../data';
 
 const PlayVideo = ({ videoId }) => {
     const [video, setVideo] = useState(null);
@@ -7,7 +8,6 @@ const PlayVideo = ({ videoId }) => {
     useEffect(() => {
         const fetchVideoDetails = async () => {
             try {
-                const API_KEY = 'AIzaSyBGhHGF2W7W22DYdOjImeOM25NjBRGjCFA';
                 const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${API_KEY}&part=snippet`);
                 if (response.ok) {
                     const data = await response.json();
