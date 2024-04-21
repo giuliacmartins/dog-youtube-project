@@ -92,6 +92,7 @@ const SearchResults = ({ searchQuery }) => {
                     </Link>
                     <div className="search-video-info">
                         <h3>{result.snippet.title}</h3>
+                        <h4>{result.snippet.channelTitle}</h4>
                         <p>{result.snippet.description}</p>
                     </div>
                 </div>
