@@ -65,7 +65,7 @@ const SearchResults = ({ searchQuery }) => {
             try {
                 if (!searchQuery) return; 
                 const API_KEY = 'AIzaSyBGhHGF2W7W22DYdOjImeOM25NjBRGjCFA';
-                const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&q=${searchQuery}&maxResults=21`);
+                const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&q=dog+${searchQuery}&maxResults=21`);
                 if (response.ok) {
                     const data = await response.json();
                     setSearchResults(data.items);
