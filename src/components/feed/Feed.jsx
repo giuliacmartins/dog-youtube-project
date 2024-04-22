@@ -3,7 +3,7 @@ import './Feed.css';
 import { Link } from 'react-router-dom';
 import { API_KEY } from '../../data';
 
-const Feed = ({ selectedSearchResult, handleSearchResultClick }) => {
+const Feed = ({ selectedSearchResult, handleSearchResultClick, sidebar }) => {
     const [videos, setVideos] = useState([]);
 
     useEffect(() => {
@@ -30,7 +30,6 @@ const Feed = ({ selectedSearchResult, handleSearchResultClick }) => {
 
     const fetchSimilarVideos = async (videoId) => {
         try {
-            const API_KEY = 'AIzaSyBGhHGF2W7W22DYdOjImeOM25NjBRGjCFA';
             const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&relatedToVideoId=${videoId}&maxResults=21`);
             if (response.ok) {
                 const data = await response.json();
@@ -43,6 +42,22 @@ const Feed = ({ selectedSearchResult, handleSearchResultClick }) => {
         }
     };
 
+    const formatDateAgo = (publishedAt) => {
+        const now = new Date();
+        const publishedDate = new Date(publishedAt);
+        const diffTime = Math.abs(now - publishedDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        if (diffDays < 30) {
+            return `${diffDays} ${diffDays === 1 ? 'day' : 'days'} ago`;
+        } else if (diffDays < 365) {
+            const diffMonths = Math.floor(diffDays / 30);
+            return `${diffMonths} ${diffMonths === 1 ? 'month' : 'months'} ago`;
+        } else {
+            const diffYears = Math.floor(diffDays / 365);
+            return `${diffYears} ${diffYears === 1 ? 'year' : 'years'} ago`;
+        }
+    };
+
     return (
         <div className="feed">
             {videos.map((video) => (
@@ -50,7 +65,8 @@ const Feed = ({ selectedSearchResult, handleSearchResultClick }) => {
                     <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
                     <div className="video-info">
                         <h3>{video.snippet.title}</h3>
-                        <p>{video.snippet.channelTitle}</p>
+                        <p>{video.snippet.channelTitle}</p> 
+                        <p>{formatDateAgo(video.snippet.publishedAt)}</p>
                     </div>
                 </Link>
             ))}

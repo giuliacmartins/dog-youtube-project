@@ -37,6 +37,7 @@ const PlayVideo = ({ videoId }) => {
                 src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
                 frameBorder="0"
                 allowFullScreen
+                allow="autoplay"
             ></iframe>
             <div className="video-info">
                 <h3>{video.snippet.title}</h3>
