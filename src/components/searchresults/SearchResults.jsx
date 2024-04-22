@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './SearchResults.css';
 import { Link } from 'react-router-dom';
 import { API_KEY } from '../../data';
+import Sidebar from '../sidebar/Sidebar'; // Import the Sidebar component
 
-const SearchResults = ({ searchQuery }) => {
+const SearchResults = ({ sidebar, searchQuery }) => {
     const [searchResults, setSearchResults] = useState([]);
 
     useEffect(() => {
@@ -26,24 +27,28 @@ const SearchResults = ({ searchQuery }) => {
     }, [searchQuery]);
 
     return (
-        <div className="search-video-results">
-            {searchResults.map((result) => (
-                <div key={result.id.videoId} className="search-video-result">
-                    <Link to={`/video/${result.id.videoId}`}>
-                        <img
-                            src={result.snippet.thumbnails.medium.url}
-                            alt={result.snippet.title}
-                        />
-                    </Link>
-                    <Link to={`/video/${result.id.videoId}`}>
-                        <div className="search-video-info">
-                            <h3>{result.snippet.title}</h3>
-                            <h4>{result.snippet.channelTitle}</h4>
-                            <p>{result.snippet.description}</p>
-                        </div>
-                    </Link>
-                </div>
-            ))}
+        <div>
+            {/* Render the Sidebar only if sidebar prop is true */}
+            {sidebar && <Sidebar sidebar={sidebar} />}
+            <div className="search-video-results">
+                {searchResults.map((result) => (
+                    <div key={result.id.videoId} className="search-video-result">
+                        <Link to={`/video/${result.id.videoId}`}>
+                            <img
+                                src={result.snippet.thumbnails.medium.url}
+                                alt={result.snippet.title}
+                            />
+                        </Link>
+                        <Link to={`/video/${result.id.videoId}`}>
+                            <div className="search-video-info">
+                                <h3>{result.snippet.title}</h3>
+                                <h4>{result.snippet.channelTitle}</h4>
+                                <p>{result.snippet.description}</p>
+                            </div>
+                        </Link>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

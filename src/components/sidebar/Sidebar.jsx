@@ -7,7 +7,8 @@ const Sidebar = ({sidebar}) => {
         <div className={`sidebar ${sidebar?"":"small-sidebar"}`}>
             <div className="shortcut">
                 <div className="side-links">
-                    <img src={home_icon} alt="Home" /><p>Home</p>
+                    <img src={home_icon} alt="Home" />
+                    <p>Home</p>
                     {/* might add more to the sidebar */}
                 </div>
             </div>

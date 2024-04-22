@@ -1,9 +1,10 @@
 nav {
     padding: 10px 2%;
     justify-content: space-between;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
     background: white;
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 10;
 }
@@ -28,11 +29,13 @@ nav {
 }
 
 .nav-middle .search-bar input {
-    width: 455px;
+    width: 500px;
     border: 0;
     outline: 0;
     background: transparent; 
     margin-right: 5px;
+    padding: 5px;
+    letter-spacing: 1px;
 }
 
 .nav-middle .search-icon {
@@ -56,20 +59,4 @@ nav {
     display: flex;
     padding: 10px;
     cursor: pointer;
-}
-
-.video-info {
-    flex: 1;
-}
-
-.video-info h3 {
-    margin: 0;
-    font-size: 10px;
-    color: #333;
-}
-
-.video-info p {
-    margin: 0;
-    font-size: 10px;
-    color: #666;
 }
