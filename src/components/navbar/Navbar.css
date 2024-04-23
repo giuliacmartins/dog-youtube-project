@@ -67,3 +67,22 @@ nav {
     padding: 10px;
     cursor: pointer;
 }
+
+@media (max-width: 900px) {
+    .menu-icon {
+        display: none;
+    }
+
+    .nav-right img {
+        display: none;
+    }
+
+    .nav-right .profile {
+        display: block;
+        width: 30px;
+    }
+
+    .nav-middle .search-bar input {
+        width: 100px;
+    }
+}

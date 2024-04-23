@@ -29,3 +29,9 @@
     font-size: 11px;
     color: #5a5a5a;
 }
+
+@media (max-width: 900px) {
+    .recommendations {
+        flex-basis: 100%;
+    }
+}

@@ -66,3 +66,40 @@
     width: 25px;
     margin-right: 8px;
 }
+
+@media (max-width: 900px) {
+    .search-video-results {
+        width: 100%;
+        left: 0;
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    .search-video-info h3 {
+        font-size: 15px; 
+        font-weight: 550;
+        color: #000;
+        margin-bottom: 10px;
+    }
+
+    .search-video-info h4 {
+        font-size: 12px; 
+        color: #666;
+        font-weight: 500;
+    }
+
+    .search-video-result img {
+        width: 50%;
+        height: auto;
+        border-radius: 15px;
+    }
+
+    .channel {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .channel img {
+        width: 25px;
+    }
+}
