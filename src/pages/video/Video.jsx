@@ -1,7 +1,7 @@
 import React from 'react';
 import './Video.css';
-import PlayVideo from '../../components/playVideo/PlayVideo';
-import Recommendations from '../../components/recommendations/Recommendations'; // Import the Recommendations component
+import PlayVideo from '../../components/playvideo/PlayVideo';
+import Recommendations from '../../components/recommendations/Recommendations';
 import { useParams } from 'react-router-dom';
 
 const Video = () => {
