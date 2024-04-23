@@ -1,6 +1,5 @@
 .feed {
     display: grid;
-    /* grid-template-columns: repeat(3, 1fr); */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-column-gap: 16px;
     grid-row-gap: 30px;
@@ -13,10 +12,6 @@
     border-radius: 15px;
 }
   
-/* .video-info {
-    padding: 10px;
-}
-   */
 .video-info h3 {
     margin: 5px 0;
     font-size: 15px;

@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './PlayVideo.css';
+import profile from '../../assets/profile_colored.png';
+import like from '../../assets/like_videos.png';
+import dislike from '../../assets/dislike.png';
+import share from '../../assets/share.png';
+import download from '../../assets/download.png';
+import three_dots from '../../assets/three_dots.png';
 import { API_KEY } from '../../data';
 
 const PlayVideo = ({ videoId }) => {
@@ -30,6 +36,22 @@ const PlayVideo = ({ videoId }) => {
         return <div>No video selected</div>;
     }
 
+    const formatDateAgo = (publishedAt) => {
+        const now = new Date();
+        const publishedDate = new Date(publishedAt);
+        const diffTime = Math.abs(now - publishedDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        if (diffDays < 30) {
+            return `${diffDays} ${diffDays === 1 ? 'day' : 'days'} ago`;
+        } else if (diffDays < 365) {
+            const diffMonths = Math.floor(diffDays / 30);
+            return `${diffMonths} ${diffMonths === 1 ? 'month' : 'months'} ago`;
+        } else {
+            const diffYears = Math.floor(diffDays / 365);
+            return `${diffYears} ${diffYears === 1 ? 'year' : 'years'} ago`;
+        }
+    };
+
     return (
         <div className="video-player">
             <iframe
@@ -39,11 +61,22 @@ const PlayVideo = ({ videoId }) => {
                 allowFullScreen
                 allow="autoplay"
             ></iframe>
-            <div className="video-info">
-                <h3>{video.snippet.title}</h3>
+            <h3>{video.snippet.title}</h3>
+            <div className="video-player-info">
+                <div className="publisher">
+                    <img src={profile} alt="Like" />
+                    <p>{video.snippet.channelTitle}</p>
+                </div>
+                <div>
+                    <span className="like"><img src={like} alt="Like" /></span>
+                    <span className="dislike"><img src={dislike} alt="Dislike" /></span>
+                    <span className="share"><img src={share} alt="Share" />Share</span>
+                    <span className="download"><img src={download} alt="Download" />Download</span>
+                    <span className="dots"><img src={three_dots} alt="Three Dots" /></span>
+                </div>
             </div>
             <div className="description">
-                <h4>{video.snippet.channelTitle}</h4>
+                <p><strong>{formatDateAgo(video.snippet.publishedAt)}</strong></p>
                 <p>{video.snippet.description}</p>
             </div>
         </div>

@@ -1,6 +1,6 @@
 .search-video-results {
     position: absolute;
-    left: 250px;
+    left: 200px;
     width: 80%; 
     background-color: white;
     border-radius: 8px;
@@ -9,10 +9,22 @@
 }
 
 .search-video-result {
-    display: flex;
-    align-items: center; 
+    /* display: flex;
+    align-items: center;  */
     padding: 10px;
     cursor: pointer;
+}
+
+.thumbnail-info-wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+.thumbnail-info-wrapper img {
+    width: 120px; 
+    height: auto;
+    margin-right: 20px;
+    border-radius: 15px;
 }
 
 .search-video-result img {
@@ -24,24 +36,35 @@
 
 .search-video-info {
     flex: 1;
-    margin-bottom: 174px;
 }
 
 .search-video-info h3 {
-    margin-bottom: 10px;
     font-size: 20px; 
+    font-weight: 550;
     color: #000;
+    margin-bottom: 10px;
 }
 
 .search-video-info h4 {
-    margin: 0;
     font-size: 14px; 
     color: #666;
-    margin-bottom: 10px;
+    font-weight: 500;
 }
 
 .search-video-info p {
     margin: 0;
     font-size: 12px; 
     color: #666;
+}
+
+.channel {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.channel img {
+    width: 25px;
+    margin-right: 8px;
 }
