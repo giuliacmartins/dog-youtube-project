@@ -1,3 +1,40 @@
+# Search and Browse Dog related YouTube Videos
+
+## Features 
+
+- Two different pages: home and video; Six different components: navbar, feed, play video, recommendations, search results, and side bar. 
+- Search for dog related YouTube videos by entering through a search query. 
+- Search results based on the query results. 
+- Able to click on a video to watch and view details.
+
+# Technologies Used
+
+- React.js for building the user interface.
+- YouTube Data API for fetching video data and documentation.
+- Online references such as YouTube itself for the layout and how to start React.js, obtain YouTube API, and understand how to fetch the data from the API.
+- CSS for styling.
+
+(References):
+- https://www.youtube.com/
+- https://www.youtube.com/watch?v=QY8dhl1EQfI&list=PL_cUvD4qzbkyZ_Q_P7W70rID0JkQ8rqic
+- https://www.youtube.com/watch?v=jp1sQZPQ_Rw
+- https://developers.google.com/youtube/v3/docs
+
+# Installation
+
+1. Clone the repository to your local machine
+2. Navigate to the project directory: 
+-> cd youtube-search-app
+3. Install the dependencies: 
+-> npm install 
+4. Obtain a YouTube Data API from the Google CLoud Console and replace `API_KEY` from the file `data.js` with your own API key
+5. Start the development server: 
+-> npm start
+6. Open your web browser and visit `http://localhost:3000` to view the application. 
+
+
+#############################################################
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
