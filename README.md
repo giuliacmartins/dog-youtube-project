@@ -23,13 +23,10 @@
 # Installation
 
 1. Clone the repository to your local machine
-2. Navigate to the project directory: 
--> cd youtube-search-app
-3. Install the dependencies: 
--> npm install 
+2. Navigate to the project directory: `cd youtube-search-app`
+3. Install the dependencies: `npm install`
 4. Obtain a YouTube Data API from the Google CLoud Console and replace `API_KEY` from the file `data.js` with your own API key
-5. Start the development server: 
--> npm start
+5. Start the development server: `npm start`
 6. Open your web browser and visit `http://localhost:3000` to view the application. 
 
 
