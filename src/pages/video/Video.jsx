@@ -5,7 +5,7 @@ import Recommendations from '../../components/recommendations/Recommendations';
 import { useParams } from 'react-router-dom';
 
 const Video = () => {
-    const { videoId } = useParams();
+    const { videoId } = useParams(); // get video id from url parameters
 
     return (
         <div className="video-container">

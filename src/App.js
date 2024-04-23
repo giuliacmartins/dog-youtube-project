@@ -7,9 +7,9 @@ import Video from './pages/video/Video';
 import SearchResults from './components/searchresults/SearchResults';
 
 const App = () => {
-  const [sidebar, setSidebar] = useState(true);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const [sidebar, setSidebar] = useState(true); // state for controlling the sidebar visibility
+  const [searchQuery, setSearchQuery] = useState(''); // for search query
+  const [searchResults, setSearchResults] = useState([]); // storing the search results
 
   return (
     <div>

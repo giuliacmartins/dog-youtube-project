@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { API_KEY } from '../../data';
 
 const Recommendations = () => {
-    const [recommendations, setRecommendations] = useState([]);
+    const [recommendations, setRecommendations] = useState([]); // store recommendations 
 
+    // fetch recommendations 
     useEffect(() => {
         const fetchRecommendations = async () => {
             try {
@@ -24,6 +25,7 @@ const Recommendations = () => {
         fetchRecommendations();
     }, []);
 
+    // for the date
     const formatDateAgo = (publishedAt) => {
         const now = new Date();
         const publishedDate = new Date(publishedAt);

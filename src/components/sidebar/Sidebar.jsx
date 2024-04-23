@@ -15,7 +15,7 @@ const Sidebar = ({sidebar}) => {
     return (
         <div className={`sidebar ${sidebar?"":"small-sidebar"}`}>
             <div className="shortcut">
-                <Link to='/'>
+                <Link to="/">
                     <div className="side-link">
                         <img src={home_icon} alt="Home" />
                         <p>Home</p>

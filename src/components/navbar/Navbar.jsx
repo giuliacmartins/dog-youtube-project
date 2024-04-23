@@ -9,19 +9,22 @@ import profile from '../../assets/profile_colored.png';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = ({ setSidebar, setSearchQuery }) => {
-    const [searchInput, setSearchInput] = useState('');
+    const [searchInput, setSearchInput] = useState(''); // manage the search input value 
     const navigate = useNavigate();
 
+    // update the search input value
     const handleInputChange = (event) => {
         setSearchInput(event.target.value);
     };
 
+    // trigger search when the enter key is pressed
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
             handleSearch();
         }
     };
 
+    // perform search 
     const handleSearch = () => {
         setSearchQuery(searchInput);
         navigate(`/search/${searchInput}`);

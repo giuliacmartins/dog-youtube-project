@@ -3,11 +3,12 @@ import './SearchResults.css';
 import profile from '../../assets/profile_colored.png';
 import { Link } from 'react-router-dom';
 import { API_KEY } from '../../data';
-import Sidebar from '../sidebar/Sidebar'; // Import the Sidebar component
+import Sidebar from '../sidebar/Sidebar';
 
 const SearchResults = ({ sidebar, searchQuery }) => {
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchResults, setSearchResults] = useState([]); // store the search results
 
+    // fetch search results when search query changes 
     useEffect(() => {
         const fetchSearchResults = async () => {
             try {
@@ -15,7 +16,7 @@ const SearchResults = ({ sidebar, searchQuery }) => {
                 const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&q=dog+${searchQuery}&maxResults=21`);
                 if (response.ok) {
                     const data = await response.json();
-                    setSearchResults(data.items);
+                    setSearchResults(data.items); // update search results state with fetched data 
                 } else {
                     console.error('Failed to fetch search results');
                 }
@@ -27,6 +28,7 @@ const SearchResults = ({ sidebar, searchQuery }) => {
         fetchSearchResults();
     }, [searchQuery]);
 
+    // format the published date
     const formatDateAgo = (publishedAt) => {
         const now = new Date();
         const publishedDate = new Date(publishedAt);
@@ -45,6 +47,7 @@ const SearchResults = ({ sidebar, searchQuery }) => {
 
     return (
         <div>
+            {/* render when sidebar is true */}
             {sidebar && <Sidebar sidebar={sidebar} />}
             <div className="search-video-results">
                 {searchResults.map((result) => (

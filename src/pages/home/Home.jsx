@@ -8,6 +8,7 @@ const Home = ({ sidebar, searchQuery }) => {
     return (
         <>
             <Sidebar sidebar={sidebar} />
+            {/* conditional rendering based on the search query */}
             <div className={`container ${sidebar ? '' : 'large-container'}`}>
                 {searchQuery ? <SearchResults searchQuery={searchQuery} /> : <Feed />}
             </div>

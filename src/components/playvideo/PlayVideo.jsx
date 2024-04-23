@@ -9,8 +9,9 @@ import three_dots from '../../assets/three_dots.png';
 import { API_KEY } from '../../data';
 
 const PlayVideo = ({ videoId }) => {
-    const [video, setVideo] = useState(null);
+    const [video, setVideo] = useState(null); // store video details
 
+    // fetch video details 
     useEffect(() => {
         const fetchVideoDetails = async () => {
             try {
@@ -32,10 +33,12 @@ const PlayVideo = ({ videoId }) => {
         fetchVideoDetails();
     }, [videoId]);
 
+    // if videos are not available
     if (!video || !video.snippet) {
         return <div>No video selected</div>;
     }
 
+    // for the date 
     const formatDateAgo = (publishedAt) => {
         const now = new Date();
         const publishedDate = new Date(publishedAt);
